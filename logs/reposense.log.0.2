@@ -1,0 +1,54 @@
+Sep 27, 2020 1:38:46 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/reposense/RepoSense.git...
+Sep 27, 2020 1:38:46 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/reposense/RepoSense.git to complete...
+Sep 27, 2020 1:38:47 AM reposense.report.RepoCloner waitForCloneProcess
+WARNING: Exception met while trying to clone the repo "reposense/RepoSense[HEAD]", will skip this repo.
+reposense.system.CommandRunnerProcessException: Error returned from command git clone --bare https://github.com/reposense/RepoSense.git RepoSense_bareon path repos\reposense_RepoSense :
+Cloning into bare repository 'RepoSense_bare'...
+error: could not lock config file C:/Users/user/Documents/RepoSense/repos/reposense_RepoSense/RepoSense_bare/config: No such file or directory
+fatal: could not set 'core.repositoryformatversion' to '0'
+
+	at reposense.system.CommandRunnerProcess.waitForProcess(CommandRunnerProcess.java:44)
+	at reposense.report.RepoCloner.waitForCloneProcess(RepoCloner.java:118)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:59)
+	at reposense.report.ReportGenerator.cloneAndAnalyzeRepos(ReportGenerator.java:162)
+	at reposense.report.ReportGenerator.generateReposReport(ReportGenerator.java:100)
+	at reposense.RepoSense.main(RepoSense.java:69)
+
+Sep 27, 2020 1:38:47 AM reposense.report.RepoCloner spawnCloneProcess
+INFO: Cloning in parallel from https://github.com/reposense/testrepo-Empty.git...
+Sep 27, 2020 1:38:47 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Waiting for cloning of https://github.com/reposense/testrepo-Empty.git to complete...
+Sep 27, 2020 1:38:48 AM reposense.report.RepoCloner waitForCloneProcess
+INFO: Cloning of https://github.com/reposense/testrepo-Empty.git completed!
+Sep 27, 2020 1:38:49 AM reposense.report.RepoCloner getClonedRepoLocation
+WARNING: Exception met while trying to get current branch of https://github.com/reposense/testrepo-Empty.git (HEAD), will skip this repo.
+reposense.git.exception.GitBranchException: Index 1 out of bounds for length 1
+	at reposense.git.GitBranch.getCurrentBranch(GitBranch.java:27)
+	at reposense.report.RepoCloner.getClonedRepoLocation(RepoCloner.java:69)
+	at reposense.report.ReportGenerator.cloneAndAnalyzeRepos(ReportGenerator.java:162)
+	at reposense.report.ReportGenerator.generateReposReport(ReportGenerator.java:100)
+	at reposense.RepoSense.main(RepoSense.java:69)
+
+Sep 27, 2020 1:38:49 AM reposense.report.RepoCloner deleteDirectory
+WARNING: Error deleting report directory.
+java.io.IOException: Fail to delete directory repos\reposense_testrepo-Charlie
+	at reposense.util.FileUtil.deleteDirectory(FileUtil.java:125)
+	at reposense.util.FileUtil.deleteDirectory(FileUtil.java:118)
+	at reposense.report.RepoCloner.deleteDirectory(RepoCloner.java:143)
+	at reposense.report.RepoCloner.cleanup(RepoCloner.java:87)
+	at reposense.report.ReportGenerator.cloneAndAnalyzeRepos(ReportGenerator.java:177)
+	at reposense.report.ReportGenerator.generateReposReport(ReportGenerator.java:100)
+	at reposense.RepoSense.main(RepoSense.java:69)
+
+Sep 27, 2020 1:38:49 AM reposense.report.ReportGenerator generateReposReport
+INFO: The report is generated at C:\Users\user\Documents\RepoSense\reposense-report
+Sep 27, 2020 1:38:49 AM reposense.RepoSense main
+INFO: Elapsed processing time: 3.36 second(s)
+Sep 27, 2020 1:38:49 AM reposense.system.ReportServer startServer
+INFO: Starting a server at port 9000...
+Sep 27, 2020 1:38:50 AM reposense.system.ReportServer launchBrowser
+INFO: Loading http://localhost:9000/ on the default browser...
+Sep 27, 2020 1:38:50 AM reposense.system.ReportServer startServer
+INFO: Press Ctrl + C or equivalent to stop the server
